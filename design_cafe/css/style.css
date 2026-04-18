@@ -1,0 +1,450 @@
+@charset "utf-8";
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Noto Sans JP", sans-serif;
+    background-color: #e9d9c0;
+}
+
+/*ヘッダー部分(講義内で作成)*/
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4.4%;
+    position: absolute;
+    width: 100%;
+    top: 30px;
+}
+
+.header-nav ul {
+    display: flex;
+    gap: 48px;
+}
+
+.logo {
+    width: 434px;
+}
+
+.header-nav a {
+    color: #fff;
+    font-family: "Alatsi", sans-serif;
+}
+
+/* PC版ではハンバーガー、SP版navを非表示にする */
+.hamburger,
+.header-nav-sp {
+    display: none;
+}
+
+/* 100pxを下回るとハンバーガーが出るように切り替わる */
+@media screen and (max-width: 1100px){
+    .header-nav{
+        display: none;
+    }
+    .hamburger {
+        display: block;
+        width: 54px;
+        height: 54px;
+        position: absolute;
+        top: -10px;
+        right: 20px;
+        cursor: pointer;
+        z-index: 99999;
+    }
+
+    .hamburger span{
+        position: absolute;
+        width: 40px;
+        height: 2px;
+        background-color: #fff;
+        top: 50%;
+        left: 7px;
+        transition: 0.3s;
+    }
+
+    /* 疑似要素 */
+    .hamburger::before{
+        position: absolute;
+        content:"";
+        width: 40px;
+        height: 2px;
+        background-color: #fff;
+        top: 14px;
+        left: 7px;
+        transition: 0.3s;
+    }
+
+    .hamburger::after{
+        position: absolute;
+        content:"";
+        width: 40px;
+        height: 2px;
+        background-color: #fff;
+        bottom: 14px;
+        left: 7px;
+        transition: 0.3s;
+    }
+
+    /* openついたときの実装 */
+.open span {
+    background-color: transparent;
+}
+
+.open::before {
+    transform: rotate(45deg);
+    top: 27px;
+}
+.open::after {
+    transform: rotate(-45deg);
+    top: 27px;
+    bottom: auto;
+}
+
+.header-nav-sp {
+    width: 100%;
+    height: 100vh;
+    background-color: #000000ad;
+    position: absolute;
+    top: -30px;
+    left: 0px;
+}
+}
+
+.header-nav-sp li{
+    color: #fff;
+}
+
+.header-nav-sp ul{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+}
+
+
+
+/*container位置*/
+.container{
+    padding-top: 144px;
+    /*display: flex;
+    justify-content: center;*/
+}
+.section_wrap{
+    max-width: 1000px;
+    padding: 144px 10px 0 10px;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*セクションタイトル、コンテンツタイトルのフォントとサイズ指定*/
+.sec_title{
+    color:  #D20202;
+    font-family: "Diplomata SC", serif;
+    font-size: 40px;
+    padding-bottom: 32px;
+    display: flex;
+    justify-content: center;
+}
+
+
+/*キービジュセクション*/
+.catch_copy{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.catch_copy p{
+    line-height: 1.5;
+}
+
+h2.catch_copy{
+    font-size: 64px;
+    line-height: 1.5;
+    padding-bottom: 16px;
+}
+.alatsi{
+    font-size: 26px;
+    font-family: "Alatsi", sans-serif;
+    padding-bottom: 40px;
+}
+
+/*ABOUT USセクション*/
+.about_us {
+    padding-left: 40px;
+}
+.about_us .sec_title{
+    display: block;
+}
+
+h4{
+    font-size: 32px;
+    padding-bottom: 16px;
+    line-height: 1.5;
+}
+
+.p180{
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.about_us_box{
+    width: 100%;
+}
+
+.about_us_box img{
+    width: 100%;
+    border-radius: 0 0 64px 0;
+}
+
+/*MENUセクション*/
+.menu>div{
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+}
+
+.menu_detail h5{
+    color:  #D20202;
+    font-family: "Diplomata SC", serif;
+    font-size: 26px;
+    padding-bottom: 5px;
+    margin-top: -10px;
+}
+
+.menu-photo{
+    border-radius: 0 64px 0 0;
+}
+
+.menu_txt{
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+/*GALLERYセクション 写真×5を画面いっぱいに横並びに*/
+.cafe_imgs{
+    display: flex;
+    justify-content: center;
+    /*width: 280px;
+    height: 240px;*/
+    width: 100%;
+}
+.cafe_imgs img{
+    width: 20%;
+}
+
+
+/*EVENTセクション*/
+.event li{
+    display:flex;
+    font-size: 20px;
+    gap: 60px;
+    margin-bottom: 16px;
+    border: 3px;
+    max-width: 650px;
+    margin: 0 auto 16px;
+}  
+
+.event ul{
+    border: 1px solid #4F270B;
+    padding: 32px 0;
+    width: 1000px;
+    background-color: #fff;
+}
+
+.event_date{
+    font-weight: bolder;
+}
+
+/*ACCESSセクション 挿入地図を画面いっぱいに広げる*/
+.access{
+    width: 100%;
+}
+
+iframe{
+    width: 100%;
+    height: 353px;
+}
+
+/*フッターセクション*/
+footer{
+    /*display: flex;          
+    justify-content: center; 
+    align-items: center; */    
+    background-color: #fff;
+}
+
+.footer_container li{
+    display:flex;
+    margin-bottom: 16px; 
+    padding-left: 39px;
+    gap: 40px;
+}
+
+.footer_container{
+    max-width: 1000px;
+    /*margin: 80px 0 60px 0;
+    display: flex;
+    justify-content: center;*/
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto 60px;
+    padding-top: 80px;
+}
+
+.cafe_info{
+    display: flex;
+    justify-content: space-between;
+}
+
+.to_Top{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 140px;
+    height: 140px;
+}
+
+/*toTopボタンの相対位置（absoluteという値は画面に対して固定ができるわけではなく、relativeを持つ要素を基準にした相対位置を決められる値になる）
+.to_Top{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 140px;
+    height: 140px;
+}
+*/
+
+.footer-logo{
+    width: 380px;
+}
+
+.copy{
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-bottom: 60px;
+}
+
+/* 768px以下の画面幅レスポンシブ対応 */
+@media screen and (max-width: 768px){
+body {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;   
+    justify-content: center;
+    text-align: flex-start; 
+}
+
+.logo {
+    width: 244px;
+}
+
+.sec_title{
+    font-size: 32px;
+    display: flex;
+    justify-content: center;
+}
+
+.container,
+.section_wrap{
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;   
+}
+
+/* キービジュ画像下セクション */
+.catch_copy p{
+    line-height: 2.0;
+}
+.alatsi{
+    font-size: 16px;
+}
+h2.catch_copy{
+    font-size: 31px;
+    line-height: 1.5;
+    padding-bottom: 24px;
+}
+/*ABOUT USセクション*/
+h4{
+    font-size: 24px;
+}
+.about_us_box img{
+    border-radius: 0;
+}
+
+
+/*MENUセクション*/
+.menu>div{
+    display: flex;
+    flex-direction: column;
+    padding:0 20px;
+}
+.menu_detail{
+    width: min-content;
+}
+
+.menu-photo{
+    width: 350px;
+}
+
+/*EVENTセクション*/
+.event ul{
+    width: 350px;
+    height: 263px;
+    padding: 32px 20px;
+}
+.event ul li{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-size: 16px;
+    margin: 0 auto;
+    gap: 0;
+    padding-bottom: 32px;
+}
+.event_date{
+    padding-bottom: 8px;
+}
+
+/* ACCESSセクション */
+.access,
+iframe{
+    width: 100%;
+}
+
+/* フッターセクション */
+.footer_container{
+    display: flex;
+    flex-direction: column;
+    padding: 80px 20px;
+}
+.footer-logo{
+    width: 326px;
+    padding-bottom: 39px;
+}
+.cafe_info ul li{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-bottom: 24px;
+    padding: 0;
+    gap: 0;
+}
+.copy{
+    display: flex;
+    text-align: left;
+    padding-left: 20px;
+}
+
+
+}
+
